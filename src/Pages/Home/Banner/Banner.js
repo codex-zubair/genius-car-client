@@ -1,4 +1,5 @@
 import React from 'react';
+import './Banner.css';
 import img1 from '../../../assets/images/banner/1.jpg'
 import img2 from '../../../assets/images/banner/2.jpg'
 import img3 from '../../../assets/images/banner/3.jpg'
@@ -13,7 +14,9 @@ const Banner = () => {
 
             <div className="carousel w-full">
                 <div id="slide1" className=" carousel-item relative w-full">
+                    <div className='img-gradient'>
                     <img alt='img' src={img1} className="w-full" />
+                    </div>
                     <div className="absolute transform -translate-y-1/2 w-2/3 left-16 top-1/2">
                         <h1 className='text-white font-bold text-4xl'>Affordable <br /> Price For Car <br /> Servicing</h1>
                         <p className='text-white'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
