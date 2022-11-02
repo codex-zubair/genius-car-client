@@ -7,8 +7,8 @@ function App() {
 
 
   return (
-    <div className="App">
-      <h1>I"M APP</h1>
+    <div data-theme = "light" className="max-w-xl mx-auto">
+
 
       <RouterProvider router={router}></RouterProvider>
     </div>
