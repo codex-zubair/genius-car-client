@@ -12,14 +12,14 @@ const About = () => {
                 </figure>
 
 
-
+ 
                 <div className="card-body ml-10">
                     <p className='text-red-500 font-semibold'>About US</p>
                     <h2 className="font-bold">We are qualified & of experience in this field</h2>
                     <p className='font-thin'>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
                     <p className='font-thin'>the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
-                    <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Listen</button>
+                    <div className="card-actions justify-stat">
+                        <button className="btn border-none mt-2 py-3 bg-red-600">Give me Info</button>
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@ const BannerSlider = ({ slide }) => {
                 <p className='text-white'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
 
                 <div className='mt-5'>
-                    <button className="btn btn-warning">Discover More</button>
+                    <button className="btn btn-warning hover:bg-yellow-300">Discover More</button>
                     <button className="btn btn-outline btn-warning ml-2 ">Latest Project</button>
                 </div>
             </div>
