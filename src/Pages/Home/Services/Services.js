@@ -14,7 +14,7 @@ const Services = () => {
 
 
     return (
-        <div className='text-center max-w-xl '>
+        <div className='text-center max-w-4xl'>
             <h1 className='text-2xl font-semibold'>Our Services Area</h1>
             <p className='mt-2 mb-5'>the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
             <div className='grid grid-cols-3 gap-4 mb-5'>
