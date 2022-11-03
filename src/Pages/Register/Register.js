@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import login from '../../../assets/images/login/login.svg'
-import { AuthContext } from '../../../Context/AuthProvider';
+import login from '../../assets/images/login/login.svg'
+import { AuthContext } from '../../Context/AuthProvider';
 
 
 const Register = () => {
 
-    const { createAnAccountWithEmail,setCurrentUserNameProfile } = useContext(AuthContext)
+    const { createAnAccountWithEmail, setCurrentUserNameProfile } = useContext(AuthContext)
 
 
     const onSubmitForm = (event) => {
@@ -21,11 +21,11 @@ const Register = () => {
 
         // Creating an account with email
         createAnAccountWithEmail(email, password)
-        .then(res=> {
-            alert("Successful");
-            setCurrentUserNameProfile(name);
-        })
-        .catch(error=> console.log(error))
+            .then(res => {
+                alert("Successful");
+                setCurrentUserNameProfile(name);
+            })
+            .catch(error => console.log(error))
     }
 
 
@@ -33,7 +33,7 @@ const Register = () => {
 
 
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero bg-base-200">
             <div className="hero-content grid grid-cols-2">
 
                 <div className="">

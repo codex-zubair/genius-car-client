@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import login from '../../assets/images/login/login.svg'
 import { AuthContext } from '../../Context/AuthProvider';
-
+import login from '../../assets/images/login/login.svg'
 const Login = () => {
 
     const {signUpWithEmail } = useContext(AuthContext);
@@ -23,7 +22,7 @@ const Login = () => {
 
 
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero bg-base-200">
             <div className="hero-content grid grid-cols-2">
                 <div className="">
                     <img className='w-3/4' src={login} alt="" />
