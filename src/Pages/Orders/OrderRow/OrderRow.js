@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-const OrderRow = ({ order }) => {
+const OrderRow = ({ order , handleDelete}) => {
 
     const { serviceName, price, customer, _id } = order;
 
     // set Services by calling the API
     const [service, setService] = useState([]);
-
-
 
 
     // fetching // Calling the services by each id of services.
@@ -19,18 +17,7 @@ const OrderRow = ({ order }) => {
     }, [_id])
 
 
-    const handleDelete = (id)=> {
-        const proceed = window.confirm("do you want to delete? " + serviceName)
-
-        if(proceed)
-        {
-            fetch(`http://localhost:5000/orders/${id}`, {
-                method: 'DELETE'
-            })
-            .then(res=> res.json())
-            .then(data=> console.log(data));
-        }
-    }
+  
 
 
 
@@ -38,7 +25,7 @@ const OrderRow = ({ order }) => {
         <tr>
             <th>
                 <label>
-                    <button onClick={()=> handleDelete(_id)} className='btn btn-ghost'>X</button>
+                    <button onClick={()=> handleDelete(_id,serviceName)} className='btn btn-ghost'>X</button>
                 </label>
 
             </th>

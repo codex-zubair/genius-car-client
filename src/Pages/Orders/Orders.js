@@ -20,6 +20,30 @@ const Orders = () => {
             .catch(error => console.log(error));
     }, [user?.email])
 
+
+
+    // Order will be deleted from here
+    const handleDelete = (id, serviceName) => {
+        const proceed = window.confirm("do you want to delete? " + serviceName)
+
+
+        console.log("I am ID " + id);
+        if (proceed) {
+            fetch(`http://localhost:5000/orders/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if(data.deletedCount > 0)
+                    {
+                        const remaining = orders.filter(ord=> ord._id !== id);
+                        setOrders(remaining);
+                    }
+                });
+        }
+    }
+
     return (
         <div>
             <h2 className="text-5xl mb-5">you have {orders.length}</h2>
@@ -29,7 +53,7 @@ const Orders = () => {
                     <thead>
                         <tr>
                             <th>
-                                
+
                             </th>
                             <th>Name</th>
                             <th>Services</th>
@@ -39,7 +63,7 @@ const Orders = () => {
                     </thead>
                     <tbody>
 
-                        {orders.map(order=> <OrderRow key={order._id} order= {order}></OrderRow>)}
+                        {orders.map(order => <OrderRow  key={order._id} order={order} handleDelete= {handleDelete}></OrderRow>)}
 
                     </tbody>
 
