@@ -27,7 +27,7 @@ const Orders = () => {
         const proceed = window.confirm("do you want to delete? " + serviceName)
 
 
-        console.log("I am ID " + id);
+      
         if (proceed) {
             fetch(`http://localhost:5000/orders/${id}`, {
                 method: 'DELETE'
@@ -35,6 +35,7 @@ const Orders = () => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
+                    console.log("working")
                     if(data.deletedCount > 0)
                     {
                         const remaining = orders.filter(ord=> ord._id !== id);
