@@ -1,4 +1,5 @@
 import Main from "../../Layout/Main";
+import Checkout from "../../Pages/Checkout/Checkout";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
@@ -16,8 +17,12 @@ export const router = createBrowserRouter([
                 path: '/login' , element: <Login></Login>
             },
             {
-                path: '/Register' , element: <Register></Register>
-            }
+                path: '/register' , element: <Register></Register>
+            },
+            {
+                path: '/checkout/:id' , element: <Checkout></Checkout>,
+                loader: ({params})=> fetch(`http://localhost:5000/checkout/${params.id}`)
+            },
         ]
     },  
 ])
