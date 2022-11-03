@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.svg'
+import { AuthContext } from '../../Context/AuthProvider';
 
 const Header = () => {
 
+    // Logout, user method from auth context
+    const { logout, user } = useContext(AuthContext);
+
+
+
     const menuItem = <div>
-        <Link className='font-semibold' to='/'>Home</Link>
-        <Link className='font-semibold ml-2' to='/orders'>Order</Link>
-        <Link className='font-semibold ml-2' to='/login'>Login</Link>
-        <Link className='font-semibold ml-2' to='/register'>Register</Link>
+
+        {user ? <div>
+            <Link className='font-semibold' to='/'>Home</Link>
+            <Link className='font-semibold ml-2' to='/orders'>Order</Link>
+            <button onClick={logout} className='font-semibold ml-2'>Logout</button>
+        </div>
+            :
+            <div>
+                <Link className='font-semibold' to='/'>Home</Link>
+                <Link className='font-semibold ml-2' to='/login'>Login</Link>
+                <Link className='font-semibold ml-2' to='/register'>Register</Link>
+            </div>}
     </div>
 
     return (
@@ -30,7 +44,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button class="btn btn-warning">Start</button>
+                <button className="btn btn-warning">Start</button>
             </div>
         </div>
     );

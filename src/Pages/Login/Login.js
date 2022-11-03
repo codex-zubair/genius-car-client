@@ -1,10 +1,19 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import login from '../../assets/images/login/login.svg'
 const Login = () => {
 
     const {signUpWithEmail } = useContext(AuthContext);
+
+
+    // Getting Location 
+    const location = useLocation();
+
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/';
+
 
     const onSubmitForm = (event)=> 
     {
@@ -15,7 +24,11 @@ const Login = () => {
         const password = form.password.value;
 
         signUpWithEmail(email,password)
-        .then(res=> alert('login successful'))
+        .then(res=> {
+            // alert('login successful')
+            navigate(from, {replace: true})
+            console.log(res);
+        })
         .catch(error=> alert(error))
     }
 

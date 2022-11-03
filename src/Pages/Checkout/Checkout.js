@@ -23,7 +23,7 @@ const Checkout = () => {
 
         // Full order that will be post / Create into database.
         const orderItem = {
-            service_id: _id,
+            _id,
             serviceName: title,
             price,
             phone,

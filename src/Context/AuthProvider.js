@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, updateProfile} from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile} from "firebase/auth";
 import { app } from '../Firebase/Firebase.config';
 
 
@@ -39,7 +39,7 @@ const AuthProvider = ({children}) => {
     const setCurrentUserNameProfile = (name)=>
     {
         updateProfile(auth.currentUser, {
-            displayName: {name}, photoURL: "https://example.com/jane-q-user/profile.jpg"
+            displayName: {name}
           })
     }
 
@@ -51,9 +51,20 @@ const AuthProvider = ({children}) => {
     }
 
 
+    // !Logout authentication
+    const logout = ()=> {
+        
+       return signOut(auth).then(() => {
+          console.log("Sign out Successful");
+        }).catch((error) => {
+          // An error happened.
+        });
+            
+          
+    }
 
 
-     const authInfo = {auth, user,createAnAccountWithEmail,setCurrentUserNameProfile,signUpWithEmail }
+     const authInfo = {logout,auth, user,createAnAccountWithEmail,setCurrentUserNameProfile,signUpWithEmail }
 
     return (
         <AuthContext.Provider value={authInfo}>
